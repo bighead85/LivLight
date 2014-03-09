@@ -7,4 +7,8 @@ Flask
 
 Run with:
 
-sudo python piglow.py
+  . LivLight/bin/activate
+  cd LivLight
+  sudo python hello.py
+  
+Put Audio books in /static/books and change hello.py to name and HMTL files as needed.
