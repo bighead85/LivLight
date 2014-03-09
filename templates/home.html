@@ -1,0 +1,99 @@
+<!doctype html>
+<head>
+<link href="/static/styles.css" rel="stylesheet">
+<link rel="shortcut icon" href="/static/favicon.ico" />
+<script type="text/javascript" src="/static/piglow-v1.js"></script>
+<script type="text/javascript" src="/static/jquery.min.js"></script>
+<title>LivPi</title>
+	<style type="text/css">
+	#canvas {width:520px;height:420px;}
+	svg path {cursor:pointer;}
+ 	</style>
+</head>
+<body>
+<center><section class="card">
+{% block lightchange %}
+  	<h1>
+<center><a href="/off"><img src="/static/off.png" width="60" height="60" align="left"></a><div id="showcanvas" style="display:inline"><strong> 
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+      {% for message in messages %}
+     <div class="flashes" style="display:inline; color:#FF0000">
+ 	{{ message }} 
+    {% endfor %}
+    </div>
+  {% else %}
+  Light
+  {% endif %}
+{% endwith %}
+
+</strong><img src="/static/more.png" height="50" width="50" align="right"></center></h1></div>
+
+<div id="buttons"><center>
+	<a href="/lighton/blue"><img src="/static/blue.png" height="100" width="110"></a><a href="/lighton/red"><img src="/static/red.png" height="100" width="110"></a><a href="/lighton/yellow"><img src="/static/yellow.png" height="100" width="110"></a>
+	<br>
+	<a href="/lighton/green"><img src="/static/green.png" height="100" width="110"></a><a href="/lighton/white"><img src="/static/white.png" height="100" width="110"></a><a href="/lighton/orange"><img src="/static/orange.png" height="100" width="110"></a>
+	</center>
+	<p><center><button id="showwords">View</button></center></p></div>
+<div id="words" class="hidden"><br>
+	<center><p><a class="button-link" href="/lighton/blue">BLUE / blue</a>&nbsp;<a class="button-link" href="/lighton/red">RED / red</a>&nbsp;<a class="button-link" href="/lighton/yellow">YELLOW / yellow</a>
+	</p><br>
+	<p><a class="button-link" href="/lighton/green">GREEN / green</a>&nbsp;<a class="button-link" href="/lighton/white">WHITE / white</a>&nbsp;<a class="button-link" href="/lighton/orange">ORANGE / orange</a>
+	</p></center><br>
+	<p><center><button id="showbuttons">View</button></center></p>	
+</div>	
+	<script>
+	$("#showcanvas").click(function(){
+	  $("#canvas").toggle();
+	});
+
+	$("#showwords").click(function(){
+	  $("#words").show();
+	  $("#words1").show();
+	  $("#buttons").hide();
+	});
+	$("#showbuttons").click(function(){
+	  $("#words").hide();
+	  $("#words1").hide();
+	  $("#buttons").show();
+	});
+	</script>
+{% endblock %}
+</section>
+<center><section class="card hidden" id="canvas"></section></center>
+
+<section class="card">
+  	{% block radio %}
+		<h1><strong><center><a href="/kill"><img src="/static/img/Mute.png" width="50" height="50"></a><div id="showradio" style="display:inline"> Radio </strong><img src="/static/more.png" height="50" width="50" align="right"></h1></div>
+  		<div class="hidden" id="radio">
+		<p><a href="/radio1"><img src="/static/img/r1.jpg" width="100" height="100"></a>
+		<a href="/jack"><img src="/static/img/jack.jpg" width="100" height="100"></a>
+		<a href="/heart"><img src="/static/img/heart.jpg" width="100" height="100"></a>
+		<a href="/absolute"><img src="/static/img/absolute.jpg" width="100" height="100"></a></p>
+		</div>
+	{% endblock %}
+	<script>
+	$("#showradio").click(function(){
+	  $("#radio").toggle();
+	});
+	</script>
+</section>
+<section class="card">
+  	{% block books %}
+		<h1><strong><center><a href="/kill"><img src="/static/img/Mute.png" width="50" height="50"></a><div id="showbooks" style="display:inline"> Stories </strong><img src="/static/more.png" height="50" width="50" align="right"></h1></div>
+  		<div class="hidden" id="books">
+		<p><a href="/beauty"><img src="/static/books/beauty.jpg" width="166.5" height="250"></a>
+		<a href="/cinderella"><img src="/static/books/Cinderella.jpg" width="166.5" height="250"></a>
+		<a href="/mermaid"><img src="/static/books/mermaid.jpg" width="166.5" height="250"></a>
+		<a href="/snowwhite"><img src="/static/books/snowwhite.jpg" width="166.5" height="250"></a>
+		<a href="/tangled"><img src="/static/books/tangled.jpg" width="166.5" height="250"></a></div>
+	{% endblock %}
+	<script>
+	$("#showbooks").click(function(){
+	  $("#books").toggle();
+	});
+	</script>
+</section>
+<section class="card">
+	<a href="/shutdown"><img src="/static/shutdown.png" height="80" width="80"></a><a href="/reboot"><img src="/static/reboot.png" height="80" width="80"></a>
+</section></center></body></html>

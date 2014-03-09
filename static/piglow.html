@@ -1,0 +1,25 @@
+<!doctype HTML>
+<html>
+<head>
+<script type="text/javascript" src="piglow-v1.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#hide").click(function(){
+    $("#canvas").hide();
+  });
+  $("#show").click(function(){
+    $("#canvas").show();
+  });
+});
+</script>
+<style type="text/css">
+#canvas {width:320px;height:320px;}
+svg path {cursor:pointer;}
+</style>
+</head>
+<body><button id="hide" src="../more.png">hide</button><button id="show">show</button>
+<div id="canvas"></div>
+
+</body>
+</html>
