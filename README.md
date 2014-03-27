@@ -3,7 +3,10 @@ PiGlow Web Remote
 
 Requires:
 
-Flask
+Flask and Wiring Pi (as below)
+cd LivLight
+ ./install-depends.sh
+
 
 Run with:
 
