@@ -9,4 +9,5 @@ git clone https://github.com/Gadgetoid/WiringPi2-Python
 cd WiringPi2-Python/
 sudo python setup.py install
 cd ../
+sudo gpio load i2c
 sudo ./piglow.py
