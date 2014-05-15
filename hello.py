@@ -301,4 +301,5 @@ def shutdown():
 
 if __name__ == '__main__':
 ##	app.run(debug=True)
-	app.run(host='0.0.0.0') ##will allow other machines to access
+	port = int(os.environ.get('PORT', 80))
+	app.run(host='0.0.0.0', port=port) ##will allow other machines to access
