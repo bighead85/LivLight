@@ -20,8 +20,6 @@ Comment Out
 	blacklist i2c-bcm2708	
 
 Run with:
-
-  . LivLight/bin/activate
   
   cd LivLight
   
