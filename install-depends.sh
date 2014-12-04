@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-sudo apt-get install python-dev python-setuptools python-pip
+sudo apt-get install python-dev python-setuptools python-pip python-smbus
 sudo pip install flask
 git clone git://git.drogon.net/wiringPi
 cd wiringPi
