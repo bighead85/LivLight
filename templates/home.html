@@ -61,7 +61,38 @@
 {% endblock %}
 </section>
 <center><section class="card hidden" id="canvas"></section></center>
-
+<section class="card">
+  	{% block cd %}
+		<h1><strong><center><a href="/kill"><img src="/static/img/Mute.png" width="50" height="50"></a><div id="showcd" style="display:inline"> Music </strong><img src="/static/more.png" height="50" width="50" align="right"></h1></div>
+  		<div class="hidden" id="cd">
+		<p><a href="/disney"><img src="/static/img/disney.jpg" width="166" height="164"></a>
+		<a href="/princess"><img src="/static/img/princess.jpg" width="166" height="164"></a>
+		<a href="/frozen"><img src="/static/img/frozen.jpg" width="166" height="164"></a></p>
+		</div>
+	{% endblock %}
+	<script>
+	$("#showcd").click(function(){
+	  $("#cd").toggle();
+	});
+	</script>
+</section>
+<section class="card">
+  	{% block books %}
+		<h1><strong><center><a href="/kill"><img src="/static/img/Mute.png" width="50" height="50"></a><div id="showbooks" style="display:inline"> Stories </strong><img src="/static/more.png" height="50" width="50" align="right"></h1></div>
+  		<div class="hidden" id="books">
+		<p><a href="/aladdin"><img src="/static/books/aladdin.jpg" width="166.5" height="250"></a>
+		<a href="/beauty"><img src="/static/books/beauty.jpg" width="166.5" height="250"></a>
+		<a href="/cinderella"><img src="/static/books/Cinderella.jpg" width="166.5" height="250"></a>
+		<a href="/mermaid"><img src="/static/books/mermaid.jpg" width="166.5" height="250"></a>
+		<a href="/snowwhite"><img src="/static/books/snowwhite.jpg" width="166.5" height="250"></a>
+		<a href="/tangled"><img src="/static/books/tangled.jpg" width="166.5" height="250"></a></div>
+	{% endblock %}
+	<script>
+	$("#showbooks").click(function(){
+	  $("#books").toggle();
+	});
+	</script>
+</section>
 <section class="card">
   	{% block radio %}
 		<h1><strong><center><a href="/kill"><img src="/static/img/Mute.png" width="50" height="50"></a><div id="showradio" style="display:inline"> Radio </strong><img src="/static/more.png" height="50" width="50" align="right"></h1></div>
@@ -79,21 +110,5 @@
 	</script>
 </section>
 <section class="card">
-  	{% block books %}
-		<h1><strong><center><a href="/kill"><img src="/static/img/Mute.png" width="50" height="50"></a><div id="showbooks" style="display:inline"> Stories </strong><img src="/static/more.png" height="50" width="50" align="right"></h1></div>
-  		<div class="hidden" id="books">
-		<p><a href="/beauty"><img src="/static/books/beauty.jpg" width="166.5" height="250"></a>
-		<a href="/cinderella"><img src="/static/books/Cinderella.jpg" width="166.5" height="250"></a>
-		<a href="/mermaid"><img src="/static/books/mermaid.jpg" width="166.5" height="250"></a>
-		<a href="/snowwhite"><img src="/static/books/snowwhite.jpg" width="166.5" height="250"></a>
-		<a href="/tangled"><img src="/static/books/tangled.jpg" width="166.5" height="250"></a></div>
-	{% endblock %}
-	<script>
-	$("#showbooks").click(function(){
-	  $("#books").toggle();
-	});
-	</script>
-</section>
-<section class="card">
-	<a href="/shutdown"><img src="/static/shutdown.png" height="80" width="80"></a><a href="/reboot"><img src="/static/reboot.png" height="80" width="80"></a>
+	<a href="/shutdown"><img src="/static/shutdown.png" height="80" width="80"></a><a href="/reboot"><img src="/static/reboot.png" height="80" width="80"></a><a href="/server"><img src="/static/music.jpg" height="80" width="80"></a>
 </section></center></body></html>

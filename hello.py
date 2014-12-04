@@ -226,63 +226,93 @@ def hello_world():
 def lights():
 	return 'Lights'
 
+@app.route('/frozen')
+def playfrozen():
+	os.system("killall mplayer")
+	os.system("nohup mplayer -slave -input file=/tmp/mplayer /media/Audio/frozen/* &")
+	return render_template('frozen.html')
+
+@app.route('/princess')
+def playprincess():
+	os.system("killall mplayer")
+	os.system("nohup mplayer -slave -input file=/tmp/mplayer -shuffle -playlist /media/Audio/princess/playlist.txt &")
+	return render_template('princess.html')
+
+@app.route('/disney')
+def playdisney():
+	os.system("killall mplayer")
+	os.system("nohup mplayer -slave -input file=/tmp/mplayer -shuffle -playlist /media/Audio/disney/playlist.txt &")
+	return render_template('disney.html')
+
 @app.route('/radio1')
 def streamr1():
 	os.system("killall mplayer")
-	os.system("nohup /home/test/test/venv/static/./radio.sh r1 &")
+	os.system("nohup /home/pi/LivLight/static/./radio.sh r1 &")
 	return render_template('r1.html')
 
 @app.route('/jack')
 def streamjack():
 	os.system("killall mplayer")
-	os.system("nohup /home/test/test/venv/static/./radio.sh jack &")
+	os.system("nohup /home/pi/LivLight/static/./radio.sh jack &")
 	return render_template('jack.html')
 
 @app.route('/heart')
 def streamheart():
 	os.system("killall mplayer")
-	os.system("nohup /home/test/test/venv/static/./radio.sh heart &")
+	os.system("nohup /home/pi/LivLight/static/./radio.sh heart &")
 	return render_template('heart.html')
 
 @app.route('/absolute')
 def streamabsolute():
 	os.system("killall mplayer")
-	os.system("nohup /home/test/test/venv/static/./radio.sh absolute &")
+	os.system("nohup /home/pi/LivLight/static/./radio.sh absolute &")
 	return render_template('absolute.html')
+
+@app.route('/aladdin')
+def readaladdin():
+	os.system("killall mplayer")
+	os.system("nohup mplayer -slave -input file=/tmp/mplayer /media/Audio/books/aladdin.mp3 &")
+	return render_template('aladdin.html')
 
 @app.route('/beauty')
 def readbeauty():
 	os.system("killall mplayer")
-	os.system("nohup mplayer -slave -input file=/tmp/mplayer /home/test/test/venv/static/books/Beauty.mp3 &")
+	os.system("nohup mplayer -slave -input file=/tmp/mplayer /media/Audio/books/beauty.mp3 &")
 	return render_template('beauty.html')
 
 @app.route('/cinderella')
 def readcind():
 	os.system("killall mplayer")
-	os.system("nohup mplayer -slave -input file=/tmp/mplayer /home/test/test/venv/static/books/Cinderella.mp3 &")
+	os.system("nohup mplayer -slave -input file=/tmp/mplayer /media/Audio/books/Cinderella.mp3 &")
 	return render_template('cinderella.html')
 
 @app.route('/mermaid')
 def readmermaid():
 	os.system("killall mplayer")
-	os.system("nohup mplayer -slave -input file=/tmp/mplayer /home/test/test/venv/static/books/Mermaid.mp3 &")
+	os.system("nohup mplayer -slave -input file=/tmp/mplayer /media/Audio/books/mermaid.mp3 &")
 	return render_template('mermaid.html')
 
 @app.route('/snowwhite')
 def readsnow():
 	os.system("killall mplayer")
-	os.system("nohup mplayer -slave -input file=/tmp/mplayer /home/test/test/venv/static/books/SnowWhite.mp3 &")
+	os.system("nohup mplayer -slave -input file=/tmp/mplayer /media/Audio/books/snowwhite.mp3 &")
 	return render_template('snowwhite.html')
 
 @app.route('/tangled')
 def readtangled():
 	os.system("killall mplayer")
-	os.system("nohup mplayer -slave -input file=/tmp/mplayer /home/test/test/venv/static/books/Tangled.mp3 &")
+	os.system("nohup mplayer -slave -input file=/tmp/mplayer /media/Audio/books/tangled.mp3 &")
 	return render_template('tangled.html')
 
 @app.route('/kill')
 def killstream():
 	os.system("killall mplayer")
+	return render_template('home.html')
+
+@app.route('/server')
+def server():
+	flash('Starting Server')
+	os.system("sudo minidlna -R && sleep 10 && sudo service minidlna restart")
 	return render_template('home.html')
 
 @app.route('/reboot')
@@ -296,7 +326,7 @@ def reboot():
 def shutdown():
 	piglow_all_off()
 	flash('Shutting Down')
-	os.system("sudo halt")
+	os.system("sudo poweroff")
 	return render_template('home.html')
 
 if __name__ == '__main__':
