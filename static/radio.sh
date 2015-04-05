@@ -2,13 +2,13 @@
 case "$1" in 
 	"jack")
 	say () { local IFS=+;/usr/bin/mplayer -ao alsa -really-quiet -noconsolecontrols "http://translate.google.com/translate_tts?tl=en&q=$*"; }
-say 'Starting 106 Jack FM South Coast'
-	mplayer http://stream3.radiomonitor.com:80/JackSouthCoast-128
+say 'Starting 106 SAM FM South Coast'
+	mplayer http://stream2.radiomonitor.com/SamFMSouthCoast-128
 	;;
 	"r1")
 	say () { local IFS=+;/usr/bin/mplayer -ao alsa -really-quiet -noconsolecontrols "http://translate.google.com/translate_tts?tl=en&q=$*"; }
 say 'Starting BBC Radio 1' 
-	mplayer http://www.bbc.co.uk/radio/listen/live/r1_aaclca.pls
+	mplayer -playlist http://www.listenlive.eu/bbcradio1.m3u
 	;;
 	"heart")
 	say () { local IFS=+;/usr/bin/mplayer -ao alsa -really-quiet -noconsolecontrols "http://translate.google.com/translate_tts?tl=en&q=$*"; }
