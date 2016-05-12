@@ -23,8 +23,8 @@ Now Update blacklist
 	
 Comment Out
 
-	blacklist spi-bcm2708
-	blacklist i2c-bcm2708	
+	#blacklist spi-bcm2708
+	#blacklist i2c-bcm2708	
 
 Run with :
 
