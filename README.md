@@ -10,6 +10,7 @@ cd LivLight
 
 Enble i2c module
 	sudo nano /etc/modules
+	
 Then add these
 	i2c-dev
 	i2c-bcm2708
